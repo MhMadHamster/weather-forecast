@@ -10,6 +10,6 @@ module.exports = {
     loaders: [{
       loader: 'babel-loader',
       exclude: /node_modules/,
-    }]
-  }
-}
+    }],
+  },
+};
