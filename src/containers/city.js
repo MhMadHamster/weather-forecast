@@ -7,10 +7,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchCity: (cityName, dayCnt) => {
+  fetchCity(cityName, dayCnt) {
     dispatch(fetchCity(cityName, dayCnt))
   },
-  removeCity: (cityId) => {
+  removeCity(cityId) {
     dispatch(removeCity(cityId))
   },
 });
