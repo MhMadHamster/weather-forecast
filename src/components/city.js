@@ -18,6 +18,7 @@ class City extends Component {
   }
   render() {
     const { data, fetchCity, removeCity } = this.props;
+
     return (
       <div>
         <div>
