@@ -65,12 +65,12 @@ class City extends Component {
 }
 
 City.propTypes = {
-  data: React.propTypes.shape({
-    arrCities: React.propTypes.array,
-    loading: React.propTypes.bool,
+  data: React.PropTypes.shape({
+    arrCities: React.PropTypes.array,
+    loading: React.PropTypes.bool,
   }).isRequired,
-  fetchCity: React.propTypes.func.isRequired,
-  removeCity: React.propTypes.func.isRequired,
+  fetchCity: React.PropTypes.func.isRequired,
+  removeCity: React.PropTypes.func.isRequired,
 };
 
 export default City;
