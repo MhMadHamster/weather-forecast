@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from './button';
 import CityItem from './cityItem';
-import test from '../services/geo';
+import getCity from '../services/geo';
 
 class City extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class City extends Component {
   }
 
   componentDidMount() {
-    test().then((res) => {
+    getCity().then((res) => {
       if (res) {
         this.setState({
           value: res,
