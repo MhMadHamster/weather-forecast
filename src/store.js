@@ -17,7 +17,9 @@ const configureStore = () => {
   );
 
   store.subscribe(throttle(() => {
-    saveState(store.getState());
+    saveState({
+      arrCities: store.getState().arrCities,
+    });
   }, 1000));
 
   return store;

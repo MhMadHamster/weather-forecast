@@ -1,0 +1,10 @@
+@import "./config";
+
+html, body {
+  margin: 0;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+html {
+  background-color: $light;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import CityContainer from '../containers/city';
+import '../../styles/app.scss';
 
 const Root = ({ store }) => (
   <Provider store={store}>

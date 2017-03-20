@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../styles/cityItem.scss';
 
 const CityItem = props => (
   <div>
@@ -6,7 +7,7 @@ const CityItem = props => (
     <ul>
       <li>{props.list[0].weather[0].description}</li>
       <li><img src={`http://openweathermap.org/img/w/${props.list[0].weather[0].icon}.png`} /></li>
-      <li>{props.list[0].temp.day}</li>
+      <li>{props.list[0].temp.day}°C</li>
     </ul>
   </div>
 );
