@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from './button';
 import CityItem from './cityItem';
 import getCity from '../services/geo';
+import '../../styles/city.scss';
 
 class City extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class City extends Component {
 
     return (
       <div>
-        <div>
+        <div className="input-wrapper">
           <input
             type="text"
             value={this.state.value}
@@ -48,7 +49,7 @@ class City extends Component {
         {this.props.data.loading ? <div>City weather loading...</div> : ''}
         <div>
           {data.arrCities.map((city, i) => (
-            <div key={i}>
+            <div key={i} className="city-item">
               <CityItem
                 {...city}
               />

@@ -1,10 +1,15 @@
-@import "./config";
-
 html, body {
   margin: 0;
   font-family: Verdana, Geneva, sans-serif;
 }
 
-html {
-  background-color: $light;
+#app {
+  max-width: 600px;
+  margin: 20px auto;
+  width: 100%;
+  background-color: #E4F1FE;
+  border-radius: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(#6C7A89, .5);
 }
