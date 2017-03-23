@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
-import promise from 'redux-promise-middleware';
+import thunk from 'redux-thunk';
 import throttle from 'lodash/throttle';
 import { loadState, saveState } from './localStorage';
 import cityReducer from './reducers/city';
@@ -11,8 +11,8 @@ const configureStore = () => {
     cityReducer,
     persistedState,
     applyMiddleware(
+      thunk,
       logger(),
-      promise(),
     ),
   );
 

@@ -1,3 +1,5 @@
+import * as types from '../constants/ActionTypes';
+
 const initialState = {
   arrCities: [],
   loading: false,
@@ -6,27 +8,27 @@ const initialState = {
 
 function cityReducer(state = initialState, action) {
   switch (action.type) {
-    case 'FETCH_CITY_PENDING':
+    case types.FETCH_CITY_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case 'FETCH_CITY_FULFILLED':
+    case types.FETCH_CITY_SUCCESS:
       return {
         ...state,
         loading: false,
         arrCities: [
           ...state.arrCities,
-          action.payload.data,
+          action.payload,
         ],
       };
-    case 'FETCH_CITY_REJECTED':
+    case types.FETCH_CITY_FAILURE:
       return {
         ...state,
         loading: false,
         error: `${action.payload.message}`,
       };
-    case 'REMOVE_CITY':
+    case types.CITY_REMOVE:
       return {
         ...state,
         arrCities: [
