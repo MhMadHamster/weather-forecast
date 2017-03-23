@@ -26,12 +26,26 @@ describe('actions', () => {
     ];
     const store = mockStore({
       loading: false,
-      arrCities: [],
+      arrCities: [
+        {
+          test: 'test city',
+        },
+      ],
     });
 
     return store.dispatch(actions.fetchCity('Moscow'))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
+  });
+
+  it(`create ${types.CITY_REMOVE}`, () => {
+    const cityId = 0;
+    const expectedAction = {
+      type: types.CITY_REMOVE,
+      payload: cityId,
+    };
+
+    expect(actions.removeCity(cityId)).toEqual(expectedAction);
   });
 });
