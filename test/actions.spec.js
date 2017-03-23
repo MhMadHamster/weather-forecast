@@ -5,7 +5,7 @@ import expect from 'expect';
 import * as actions from '../src/actions/city';
 import * as types from '../src/constants/ActionTypes';
 
-const middlewares = [ thunk ];
+const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('actions', () => {
