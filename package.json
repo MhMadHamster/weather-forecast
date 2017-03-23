@@ -4,7 +4,9 @@
   "description": "readme",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "test": "jest",
+    "test:watch": "npm test -- -watch"
   },
   "repository": {
     "type": "git",
@@ -17,11 +19,16 @@
   },
   "homepage": "https://github.com/MhMadHamster/weather-forecast#readme",
   "devDependencies": {
+    "babel-jest": "^19.0.0",
     "eslint": "^3.17.1",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.0"
+    "eslint-plugin-react": "^6.10.0",
+    "expect": "^1.20.2",
+    "jest": "^19.0.2",
+    "nock": "^9.0.9",
+    "redux-mock-store": "^1.2.2"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -33,6 +40,7 @@
     "babel-preset-stage-3": "^6.22.0",
     "co": "^4.6.0",
     "css-loader": "^0.27.3",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "node-sass": "^4.5.0",
     "react": "^15.4.2",
@@ -41,6 +49,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.2",
     "redux-promise-middleware": "^4.2.0",
+    "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.14.1",
     "webpack": "^2.2.1",
