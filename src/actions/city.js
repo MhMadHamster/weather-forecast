@@ -21,7 +21,7 @@ export const fetchCity = (cityName, dayCnt = 1) =>
     return fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?appid=619cd4039c26e42174770ad2b8c5ab64&units=metric&q=${cityName}&cnt=${dayCnt}`)
       .then(res => res.json())
       .then(json => dispatch(fetchCitySuccess(json)))
-      .catch(err => dispatch(fetchCityFailure(err)));
+      .catch(err => dispatch(fetchCityFailure(err.message)));
   };
 
 export const removeCity = (cityId = null) => ({

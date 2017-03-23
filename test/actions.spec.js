@@ -26,11 +26,27 @@ describe('actions', () => {
     ];
     const store = mockStore({
       loading: false,
-      arrCities: [
-        {
-          test: 'test city',
-        },
-      ],
+      arrCities: [],
+    });
+
+    return store.dispatch(actions.fetchCity('Moscow'))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
+
+  it(`create ${types.FETCH_CITY_FAILURE}`, () => {
+    nock('http://api.openweathermap.org')
+      .get('/data/2.5/forecast/daily?appid=619cd4039c26e42174770ad2b8c5ab64&units=metric&q=Moscow&cnt=1')
+      .reply(404);
+
+    const expectedActions = [
+      { type: types.FETCH_CITY_REQUEST },
+      { type: types.FETCH_CITY_FAILURE, err: 'Unexpected end of JSON input' },
+    ];
+    const store = mockStore({
+      loading: false,
+      arrCities: [],
     });
 
     return store.dispatch(actions.fetchCity('Moscow'))
