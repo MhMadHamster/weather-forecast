@@ -26,7 +26,7 @@ function cityReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        error: `${action.payload.message}`,
+        error: `${action.err}`,
       };
     case types.CITY_REMOVE:
       return {
