@@ -8,10 +8,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchCity(cityName, dayCnt) {
-    dispatch(fetchCity(cityName, dayCnt))
+    dispatch(fetchCity(cityName, dayCnt));
   },
   removeCity(cityId) {
-    dispatch(removeCity(cityId))
+    dispatch(removeCity(cityId));
   },
 });
 

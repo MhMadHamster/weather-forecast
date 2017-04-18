@@ -1,12 +1,15 @@
+import { Map } from 'immutable';
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  arrCities: [],
+  arrCities: Map([]),
   loading: false,
   error: null,
 };
 
 function cityReducer(state = initialState, action) {
+  let arrCities;
+
   switch (action.type) {
     case types.FETCH_CITY_REQUEST:
       return {
@@ -14,13 +17,15 @@ function cityReducer(state = initialState, action) {
         loading: true,
       };
     case types.FETCH_CITY_SUCCESS:
+      if (!state.arrCities.has(action.payload.city.id)) {
+        arrCities = state.arrCities.set(action.payload.city.id, action.payload);
+      } else {
+        arrCities = state.arrCities;
+      }
       return {
         ...state,
         loading: false,
-        arrCities: [
-          ...state.arrCities,
-          action.payload,
-        ],
+        arrCities,
       };
     case types.FETCH_CITY_FAILURE:
       return {
@@ -29,12 +34,10 @@ function cityReducer(state = initialState, action) {
         error: `${action.err}`,
       };
     case types.CITY_REMOVE:
+      arrCities = state.arrCities.delete(action.payload);
       return {
         ...state,
-        arrCities: [
-          ...state.arrCities.slice(0, action.payload),
-          ...state.arrCities.slice(action.payload + 1),
-        ],
+        arrCities,
       };
     default:
       return state;

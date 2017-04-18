@@ -48,13 +48,13 @@ class City extends Component {
         </div>
         {this.props.data.loading ? <div>City weather loading...</div> : ''}
         <div>
-          {data.arrCities.map((city, i) => (
-            <div key={i} className="city-item">
+          {data.arrCities.valueSeq().map(item => (
+            <div key={item.city.id} className="city-item">
               <CityItem
-                {...city}
+                {...item}
               />
               <Button
-                onClick={() => removeCity(i)}
+                onClick={() => removeCity(item.city.id)}
                 text={'Remove city'}
               />
             </div>
@@ -67,7 +67,7 @@ class City extends Component {
 
 City.propTypes = {
   data: React.PropTypes.shape({
-    arrCities: React.PropTypes.array,
+    arrCities: React.PropTypes.Map,
     loading: React.PropTypes.bool,
   }).isRequired,
   fetchCity: React.PropTypes.func.isRequired,

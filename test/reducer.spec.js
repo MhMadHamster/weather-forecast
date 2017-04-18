@@ -1,3 +1,4 @@
+import { Map } from 'immutable';
 import reducer from '../src/reducers/city';
 import * as types from '../src/constants/ActionTypes';
 
@@ -6,7 +7,7 @@ describe('city reducer', () => {
     expect(
       reducer(undefined, {}),
     ).toEqual({
-      arrCities: [],
+      arrCities: Map([]),
       loading: false,
       error: null,
     });
@@ -25,20 +26,29 @@ describe('city reducer', () => {
   });
 
   it(`should handle ${types.FETCH_CITY_SUCCESS}`, () => {
+    const payload = {
+      city: {
+        id: 1,
+      },
+      value: 'some city',
+    };
+    const expectedResult = Map().set(1, payload);
+
     expect(
       reducer({
-        arrCities: [],
+        arrCities: Map([]),
         loading: true,
       }, {
         type: types.FETCH_CITY_SUCCESS,
         payload: {
-          city: 'some city',
+          city: {
+            id: 1,
+          },
+          value: 'some city',
         },
       }),
     ).toEqual({
-      arrCities: [{
-        city: 'some city',
-      }],
+      arrCities: expectedResult,
       loading: false,
     });
   });
@@ -59,17 +69,24 @@ describe('city reducer', () => {
   });
 
   it(`should handle ${types.CITY_REMOVE}`, () => {
+    const payload = {
+      city: {
+        id: 1,
+      },
+      value: 'some city',
+    };
+    const defaultMap = Map().set(1, payload);
+
+
     expect(
       reducer({
-        arrCities: [{
-          city: 'some city',
-        }],
+        arrCities: defaultMap,
       }, {
         type: types.CITY_REMOVE,
-        payload: 0,
+        payload: 1,
       }),
     ).toEqual({
-      arrCities: [],
+      arrCities: Map([]),
     });
   });
 });
