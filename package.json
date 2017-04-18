@@ -4,7 +4,8 @@
   "description": "readme",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "webpack-dev-server --inline --port 8080",
+    "build": "rimraf dist && webpack -p",
     "test": "jest",
     "test:watch": "npm test -- -watch"
   },
